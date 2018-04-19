@@ -1,0 +1,118 @@
+
+
+.tableau {
+border-color: black;
+margin-top: 50px;
+width: 100%;
+
+}
+.col1{
+    width: 7.5vw;
+
+}
+.col2{
+    width: 8vw;
+
+ }
+.col3{
+    width: auto;
+    border-left: 1px;
+}
+
+.col4{
+    width: 18vw;
+    max-width: 18vw;
+    height: auto;
+}
+    
+.display {
+    position:relative;
+    margin: 0 auto;
+    padding-bottom: 30px;
+        width: 55vw;
+
+}
+
+.container2 {
+    width: 55vw;
+    min-width: 55vw;
+
+    display: flex;
+    flex-wrap: nowrap;  
+    justify-content: center;
+}
+
+.image {
+    flex: initial;
+}
+    
+ img { 
+     width: 6.5vw;
+    border-radius: 2%;
+}
+
+.stripe3 { width: 1px;
+    height: 10vw;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-top: 0.8vw;
+    opacity: 70%;
+    
+}
+
+.chien {
+    padding-top: 10px;
+    
+}
+
+
+.container3 {
+    flex: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.pseudo { height: 2vw;
+    font-weight: 500;
+    font-size: 1.5vw;
+}
+.level{
+  font-size:0.9vw;
+    height: 2vw;
+
+    
+}
+
+.maj { 
+    font-size:0.6vw;
+    width:auto;
+}
+
+.stripe {
+    margin-top:10px;
+    margin: 0 auto;
+    height: 1px;
+    width: 50vw;
+    background-color:oldlace;
+    margin-bottom: 25px;
+}
+
+.stripe2 {
+    margin-top:10px;
+    margin: 0 auto;
+    height: 1px;
+    width: 50vw;
+    background-color:rgba(255, 255, 255, 0.3);
+    margin-bottom: 25px;
+}
+
+    .tableau {
+      border-color: black;
+      margin-top: 50px;
+      width: 100%;
+
+}
+
+
+

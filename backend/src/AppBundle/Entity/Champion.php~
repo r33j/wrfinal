@@ -1,0 +1,97 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+
+/**
+ * Champion
+ *
+ * @ORM\Table(name="champion")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ChampionRepository")
+ *
+ * @ApiResource(
+ *     attributes={
+ *         "normalization_context"={"groups"={"get"}}
+ *     },
+ *     itemOperations={
+ *          "get"={"method"="GET"}
+ *     },
+ *     collectionOperations={"get"={"method"="GET"}},
+ *     )
+ */
+class Champion
+{
+    /**
+     * @var int
+     * @Groups("get")
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $id;
+
+    /**
+     * @var string
+     * @Groups("get")
+     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="SummonerInMatch", mappedBy="champion")
+     */
+    private $summonerInMatchs;
+
+    /**
+     * Set id
+     *
+     * @param int $id
+     *
+     * @return Champion
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+ * Set name
+ *
+ * @param string $name
+ *
+ * @return Champion
+ */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+}

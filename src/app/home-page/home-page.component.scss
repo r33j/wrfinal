@@ -1,0 +1,82 @@
+.jumbotron { 
+    font-family: Open Sans,sans-serif;
+    height: auto;
+    color: #FFFFFF;
+    background: none;
+   padding:  0rem 2rem;
+    margin-bottom: 3%;
+
+    
+} 
+    
+    
+
+.btn-primary {
+    
+    background-color: mediumaquamarine;
+    border-color: mediumaquamarine
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    
+        border-radius: 2.3rem;
+        font-size: 1.15rem;
+
+    
+}
+
+row {
+    
+ justify-content: space-between;
+    display: flex;
+        flex-wrap: wrap; 
+    width: inherit;
+        background-color:#212529;
+    border-radius: 3%;
+
+
+
+}
+
+.col {
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+    padding-top: 5%;
+}
+
+.header {
+    
+    width: 90%;
+border-radius: 2%;}
+
+.centered {
+   text-align: center;
+   font-size: 0;
+}
+
+iframe {
+    height: inherit;
+    width: 100%;
+    border-width: 0px;
+    padding-bottom: 20px;
+}
+
+.container {
+    
+    height: 550px;
+}
+
+.ytp-watermark yt-uix-sessionlink
+{
+    
+    position: absolute;
+}
+
+.stripe {
+    margin-top:15px;
+    margin: 0 auto;
+    height: 1px;
+    width: 70%;
+    background-color:oldlace;}
+

@@ -1,0 +1,274 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Summoner
+ *
+ * @ORM\Table(name="summoner")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SummonerRepository")
+ *
+ * @ApiResource
+ */
+class Summoner
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="summonerName", type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $summonerName;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="AccountId", type="integer")
+     */
+    private $accountId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profilIconId", type="string", length=255)
+     */
+    private $profilIconId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="Level", type="integer")
+     */
+    private $level;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="leaguePoints", type="integer")
+     */
+    private $leaguePoints;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="highestAchievedSeasonTier", type="string")
+     */
+    private $highestAchievedSeasonTier;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="revisionDate", type="datetime")
+     */
+    private $revisionDate;
+
+    /** @ORM\ManyToOne (targetEntity="User", inversedBy="summoners")
+     *  @ORM\JoinColumn (name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="SummonerInMatch", mappedBy="summoner")
+     */
+    private $summonerInMatchs;
+
+    public function _construct ()
+   {
+       $this->summonerInMatchs =  new ArrayCollection();
+   }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set summonerName
+     *
+     * @param string $summonerName
+     *
+     * @return Summoner
+     */
+    public function setSummonerName($summonerName)
+    {
+        $this->summonerName= $summonerName;
+
+        return $this;
+    }
+
+    /**
+     * Get summonerName
+     *
+     * @return string
+     */
+    public function getSummonerName()
+    {
+        return $this->summonerName;
+    }
+
+    /**
+     * Set accountId
+     *
+     * @param integer $accountId
+     *
+     * @return Summoner
+     */
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+
+        return $this;
+    }
+
+    /**
+     * Get accountId
+     *
+     * @return integer
+     */
+    public function getAccountId()
+    {
+        return $this->accountId;
+    }
+
+    /**
+     * Set profilIconId
+     *
+     * @param string $profilIconId
+     *
+     * @return Summoner
+     */
+    public function setProfilIconId($profilIconId)
+    {
+        $this->profilIconId = $profilIconId;
+
+        return $this;
+    }
+
+    /**
+     * Get profilIconId
+     *
+     * @return string
+     */
+    public function getProfilIconId()
+    {
+        return $this->profilIconId;
+    }
+
+    /**
+     * Set level
+     *
+     * @param integer $level
+     *
+     * @return Summoner
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return int
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * Set leaguePoints
+     *
+     * @param integer $leaguePoints
+     *
+     * @return Summoner
+     */
+    public function setLeaguePoints($leaguePoints)
+    {
+        $this->leaguePoints = $leaguePoints;
+
+        return $this;
+    }
+
+    /**
+     * Get leaguePoints
+     *
+     * @return int
+     */
+    public function getLeaguePoints()
+    {
+        return $this->leaguePoints;
+    }
+
+    /**
+     * Set highestAchievedSeasonTier
+     *
+     * @param string $highestAchievedSeasonTier
+     *
+     * @return Summoner
+     */
+    public function setHighestAchievedSeasonTier($highestAchievedSeasonTier)
+    {
+        $this->highestAchievedSeasonTier= $highestAchievedSeasonTier;
+
+        return $this;
+    }
+
+    /**
+     * Get highestAchievedSeasonTier
+     *
+     * @return string
+     */
+    public function getHighestAchievedSeasonTier()
+    {
+        return $this->highestAchievedSeasonTier;
+    }
+
+    /**
+     * Set revisionDate
+     *
+     * @param \Datetime $revisionDate
+     *
+     * @return Summoner
+     */
+    public function setRevisionDate($revisionDate)
+    {
+        $this->revisionDate= $revisionDate;
+
+        return $this;
+    }
+
+    /**
+     * Get revisionDate
+     *
+     * @return \Datetime
+     */
+    public function getRevisionDate()
+    {
+        return $this->revisionDate;
+    }
+
+}
+
+

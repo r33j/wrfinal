@@ -1,0 +1,218 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+
+/**
+ * SummonerInMatch
+ *
+ * @ORM\Table(name="summoner_in_match")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SummonerInMatchRepository")
+ *
+ * @ApiResource
+ */
+class SummonerInMatch
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=255)
+     */
+    private $role;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="win", type="boolean", length=255)
+     */
+    private $win;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="kills", type="integer")
+     */
+    private $kills;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="deaths", type="integer")
+     */
+    private $deaths;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="assists", type="integer")
+     */
+    private $assists;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Champion")
+     * @ORM\JoinTable(name="summonerinmatchs_champions",
+     *     joinColumns={@ORM\JoinColumn (name =" summonerinmatch_id ", referencedColumnName ="id")},
+     *     inverseJoinColumns ={ @ORM\JoinColumn (name ="champion_id ", referencedColumnName ="id")}
+     * )
+     */
+    private $champions;
+
+    /** @ORM\ManyToOne (targetEntity ="Summoner", inversedBy ="summonerInMatchs")
+     *  @ORM\JoinColumn (name="summoner_id ", referencedColumnName ="id")
+     */
+    private $summoner;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="MatchSummoner", inversedBy="summonerInMatchs")
+     */
+    private $matchSummoner;
+
+    public function _construct ()
+    {
+        $this->champions = new ArrayCollection();
+    }
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return SummonerInMatch
+     */
+    public function setRole($role)
+    {
+        $this->roe = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Set win
+     *
+     * @param bool $win
+     *
+     * @return SummonerInMatch
+     */
+    public function setWin($win)
+    {
+        $this->win = $win;
+
+        return $this;
+    }
+
+    /**
+     * Get win
+     *
+     * @return bool
+     */
+    public function getWin()
+    {
+        return $this->win;
+    }
+
+    /**
+     * Set kills
+     *
+     * @param integer $kills
+     *
+     * @return SummonerInMatch
+     */
+    public function setKills($kills)
+    {
+        $this->kills = $kills;
+
+        return $this;
+    }
+
+    /**
+     * Get kills
+     *
+     * @return int
+     */
+    public function getKills()
+    {
+        return $this->kills;
+    }
+
+    /**
+     * Set deaths
+     *
+     * @param integer $deaths
+     *
+     * @return SummonerInMatch
+     */
+    public function setDeaths($deaths)
+    {
+        $this->deaths = $deaths;
+
+        return $this;
+    }
+
+    /**
+     * Get deaths
+     *
+     * @return int
+     */
+    public function getDeaths()
+    {
+        return $this->deaths;
+    }
+
+    /**
+     * Set assists
+     *
+     * @param integer $assists
+     *
+     * @return SummonerInMatch
+     */
+    public function setAssists($assists)
+    {
+        $this->assists = $assists;
+
+        return $this;
+    }
+
+    /**
+     * Get assists
+     *
+     * @return int
+     */
+    public function getAssists()
+    {
+        return $this->assists;
+    }
+
+}
+
+

@@ -1,0 +1,15 @@
+<div class="container">
+<div class="row">
+  <div class="tableau">
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of boardLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of boardData">
+        <td *ngFor="let data of d">{{data}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+</div>
